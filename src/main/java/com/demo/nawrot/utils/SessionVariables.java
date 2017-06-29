@@ -6,6 +6,7 @@ package com.demo.nawrot.utils;
 public class SessionVariables {
 
     public static final String ADDED_TO_CART_ITEM_NAME = "addedItemName";
+    public static final String ADDED_TO_CART_ITEM_PRICE = "addedItemPrice";
 
     private SessionVariables() {
     }

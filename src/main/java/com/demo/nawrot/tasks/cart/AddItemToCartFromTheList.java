@@ -11,7 +11,10 @@ import java.util.List;
 
 import static com.demo.nawrot.pageobjects.CartProductList.PRODUCTS_LIST_IN_CART;
 import static com.demo.nawrot.pageobjects.ProductList.PRODUCTS_LIST;
+import static com.demo.nawrot.utils.Attributes.PRODUCT_PRICE;
 import static com.demo.nawrot.utils.SessionVariables.ADDED_TO_CART_ITEM_NAME;
+import static com.demo.nawrot.utils.SessionVariables.ADDED_TO_CART_ITEM_PRICE;
+import static com.demo.nawrot.utils.Utils.parseIntFromString;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 /**
@@ -29,13 +32,20 @@ public class AddItemToCartFromTheList implements Task {
         List<WebElementFacade> listOfProducts = PRODUCTS_LIST.resolveAllFor(actor);
         WebElementFacade productToAdd = listOfProducts.get(position - 1);
         String nameOfProduct = getNameOfProduct(productToAdd);
+        int priceOfProduct = getPriceOfItem(productToAdd);
         WebElementFacade cartButtonOfProductToBeAdded = getButtonToAddToCartOf(productToAdd);
 
         actor.attemptsTo(
+                SetSessionVariable.namedWithValue(ADDED_TO_CART_ITEM_PRICE, priceOfProduct),
                 SetSessionVariable.namedWithValue(ADDED_TO_CART_ITEM_NAME, nameOfProduct),
                 Click.on(cartButtonOfProductToBeAdded));
 
         PRODUCTS_LIST_IN_CART.resolveFor(actor).waitUntilVisible();
+    }
+
+    private int getPriceOfItem(WebElementFacade productToAdd) {
+        String priceText = productToAdd.getAttribute(PRODUCT_PRICE);
+        return parseIntFromString(priceText);
     }
 
     private WebElementFacade getButtonToAddToCartOf(WebElementFacade productToAdd) {

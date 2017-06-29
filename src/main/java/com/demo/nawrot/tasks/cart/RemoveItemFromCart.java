@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import java.util.List;
 
 import static com.demo.nawrot.pageobjects.CartProductList.PRODUCTS_LIST_IN_CART;
+import static com.demo.nawrot.pageobjects.CartProductList.REMOVE_BUTTON_SELECTOR;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 /**
@@ -30,8 +31,8 @@ public class RemoveItemFromCart implements Task {
         actor.attemptsTo(Click.on(removeButtonOfItemToRemove));
     }
 
-    private WebElementFacade getRemoveButtonOf(WebElementFacade itemToRemove) {
-        return itemToRemove.find(By.xpath("//a[contains(@class,'remove-product')]"));
+    static WebElementFacade getRemoveButtonOf(WebElementFacade itemToRemove) {
+        return itemToRemove.find(By.xpath(REMOVE_BUTTON_SELECTOR));
     }
 
     public static RemoveItemFromCart onPosition(int position) {

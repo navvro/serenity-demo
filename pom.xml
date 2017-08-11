@@ -22,7 +22,7 @@
         </plugins>
     </build>
     <properties>
-        <serenity.version>1.2.3-rc.3</serenity.version>
+        <serenity.version>1.5.3</serenity.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <webdriver.driver>chrome</webdriver.driver>
@@ -38,7 +38,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.19.1</version>
+                        <version>2.20</version>
                         <configuration>
                             <skip>true</skip>
                             <argLine>-Djava.awt.headless=true</argLine>
@@ -47,7 +47,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.5</version>
+                        <version>3.6.2</version>
                         <configuration>
                             <source>1.8</source>
                             <target>1.8</target>
@@ -56,7 +56,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.19.1</version>
+                        <version>2.20</version>
                         <configuration>
                             <argLine>-Djava.awt.headless=true</argLine>
                             <includes>
@@ -74,7 +74,7 @@
                     <plugin>
                         <groupId>net.serenity-bdd.maven.plugins</groupId>
                         <artifactId>serenity-maven-plugin</artifactId>
-                        <version>1.2.2</version>
+                        <version>1.5.3</version>
                         <dependencies>
                             <dependency>
                                 <groupId>net.serenity-bdd</groupId>
@@ -105,12 +105,12 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.0.0</version>
+            <version>3.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-firefox-driver</artifactId>
-            <version>2.48.2</version>
+            <version>3.4.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -125,11 +125,11 @@
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-cucumber</artifactId>
-            <version>1.1.23</version>
+            <version>1.5.4</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
-            <artifactId>cucumber-java</artifactId>
+            <artifactId>cucumber-java8</artifactId>
             <version>1.2.5</version>
         </dependency>
         <dependency>
@@ -150,7 +150,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>19.0</version>
+            <version>21.0</version>
         </dependency>
     </dependencies>
 </project>

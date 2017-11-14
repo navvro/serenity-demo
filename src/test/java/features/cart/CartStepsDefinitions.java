@@ -20,7 +20,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Open;
-import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
@@ -32,7 +31,11 @@ import static com.demo.navvrot.utils.SessionVariables.ADDED_TO_CART_ITEM_PRICE;
 import static com.demo.navvrot.utils.Utils.parseIntFromString;
 import static net.serenitybdd.screenplay.GivenWhenThen.givenThat;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static org.hamcrest.Matchers.*;
+import static net.serenitybdd.screenplay.actors.OnStage.setTheStage;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.hamcrest.core.IsCollectionContaining.hasItem;
 
 /**
  * @author Rafal Nawrocki <rafal.nawrocki0@gmail.com>
@@ -46,7 +49,7 @@ public class CartStepsDefinitions {
 
     @Before
     public void set_the_stage() {
-        OnStage.setTheStage(new OnlineCast());
+        setTheStage(new OnlineCast());
         givenThat(user).can(BrowseTheWeb.with(theBrowser));
     }
 
@@ -143,3 +146,5 @@ public class CartStepsDefinitions {
         user.should(seeThat(OverallCartPrice.sum(), is(equalTo(expectedSum))));
     }
 }
+
+

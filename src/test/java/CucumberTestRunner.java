@@ -9,6 +9,6 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources/features/cart/Cart.feature",
-        format = {"pretty", "json:target/cucumber.json"})
+        format = {"json:target/cucumber.json"})
 public class CucumberTestRunner {
 }

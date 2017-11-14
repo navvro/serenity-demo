@@ -8,6 +8,7 @@ Feature: Cart operation on e-shop
 
   @CART.TC01 @sanity @regress @smoke
   Scenario: Should add single item to cart
+#  Given i click for chelsea
     When User opens "Laptopy i tablety" category
     And User opens "Laptopy/Notebooki/Ultrabooki" subcategory
     And User adds 1st item on the list to his cart
@@ -51,7 +52,7 @@ Feature: Cart operation on e-shop
     And User adds 1st item on the list to his cart
     Then Price of item in the cart is the same as on the list
 
-  @CART.TC06 @regress @sanity @smoke @prices
+  @CART.TC06 @regress @sanity @smoke @prices @pending
   Scenario: Should price of item in cart with multiple amount be correct
     When User opens "Laptopy i tablety" category
     And User opens "Laptopy/Notebooki/Ultrabooki" subcategory
